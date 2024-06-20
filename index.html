@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Greetings</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?fit=crop&w=1950&q=80') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+            text-align: center;
+        }
+        #root {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+        }
+        .greeting {
+            padding: 20px;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .greeting img {
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border: 2px solid white;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin: 0;
+        }
+        p {
+            margin: 10px 0 0;
+            font-size: 1.2rem;
+        }
+
+
+        .r3{
+            text-shadow: 1px 3px 2px black;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        // Functional Component
+        const rootNode = ReactDOM.createRoot(document.getElementById('root'));
+        const GreetingFunctional = (props) => {
+            return (
+                <div className="greeting">
+                    <img src="https://cdn.pixabay.com/photo/2024/02/05/02/53/cat-8553498_1280.jpg" alt="User avatar" />
+                    <div>
+                        <h1 className="r3">Hello {props.name}!</h1>
+                        <p className="r3">Welcome to our platform.</p>
+                    </div>
+                </div>
+            );
+        };
+
+        // Class Component
+        class GreetingClass extends React.Component {
+            render() {
+                return (
+                    <div className="greeting">
+                        <img src="https://media.istockphoto.com/id/1249937474/vector/people-living-with-pets-man-women-pet-adoption.jpg?s=1024x1024&w=is&k=20&c=j01Ih_40TtEnBbpWt9IyFZVAtP3O4ht1lM4XA8RxFog=" alt="User avatar" />
+                        <div>
+                            <h1 className="r3">Hello {this.props.name}!</h1>
+                            <p className="r3">We are glad to see you here.</p>
+                        </div>
+                    </div>
+                );
+            }
+        }
+
+        // Render the root component
+        rootNode.render(
+            <React.Fragment>
+                <GreetingFunctional name="Preeti" />
+                <GreetingClass name="Preeti" />
+            </React.Fragment>
+        );
+    </script>
+</body>
+</html>
